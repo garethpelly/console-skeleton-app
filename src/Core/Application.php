@@ -9,7 +9,7 @@ use Zend\Console\Adapter\AdapterInterface as Console;
 use Zend\Console\Console as DefaultConsole;
 use ZF\Console\RouteCollection;
 use ZF\Console\Application as ZfApplication;
-use ZF\Console\Dispatcher;
+use ZF\Console\DispatcherInteface;
 
 class Application extends ZfApplication
 {
@@ -29,21 +29,21 @@ class Application extends ZfApplication
         );
     }
 
-    protected function setupHelpCommand(RouteCollection $routeCollection, Dispatcher $dispatcher)
+    protected function setupHelpCommand(RouteCollection $routeCollection, DispatcherInterface $dispatcher)
     {
         if ($dispatcher instanceof AppDispatcher) {
             return parent::setupHelpCommand($routeCollection, $dispatcher);
         }
     }
 
-    protected function setupVersionCommand(RouteCollection $routeCollection, Dispatcher $dispatcher)
+    protected function setupVersionCommand(RouteCollection $routeCollection, DispatcherInterface $dispatcher)
     {
         if ($dispatcher instanceof AppDispatcher) {
             return parent::setupVersionCommand($routeCollection, $dispatcher);
         }
     }
 
-    protected function setupAutocompleteCommand(RouteCollection $routeCollection, Dispatcher $dispatcher)
+    protected function setupAutocompleteCommand(RouteCollection $routeCollection, DispatcherInterface $dispatcher)
     {
         if ($dispatcher instanceof AppDispatcher) {
             return parent::setupAutocompleteCommand($routeCollection, $dispatcher);
